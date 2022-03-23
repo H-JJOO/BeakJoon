@@ -1,24 +1,21 @@
 import java.io.*;
-import java.util.StringTokenizer;
 
 public class Main {
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
 
-        int a = Integer.parseInt(st.nextToken());
+        int a = Integer.parseInt(br.readLine());
+        int b = Integer.parseInt(br.readLine());
 
-        if (a >= 90) {
-            System.out.println("A");
-        } else if (a >= 80) {
-            System.out.println('B');
-        } else if (a >= 70) {
-            System.out.println("C");
-        } else if (a >= 60) {
-            System.out.println("D");
-        } else {
-            System.out.println("F");
+        if (a > 0 && b > 0) {
+            System.out.println(1);
+        } else if (a < 0 && b > 0) {
+            System.out.println(2);
+        } else if (a < 0 && b < 0) {
+            System.out.println(3);
+        } else if (a > 0 && b < 0) {
+            System.out.println(4);
         }
     }
 }
