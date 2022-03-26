@@ -3,22 +3,24 @@ import java.util.StringTokenizer;
 
 public class Main {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+        StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int a = Integer.parseInt(st.nextToken());
-        int b = Integer.parseInt(st.nextToken());
+        int A = Integer.parseInt(st.nextToken());
+        int B = Integer.parseInt(st.nextToken());
+        int C = Integer.parseInt(br.readLine());
 
-        if (b < 45) {
-            a--;
-            b = 60 - (45 - b);
-            if (a < 0) {
-                a = 23;
-            }
-            System.out.println(a + " " + b);
-        } else {
-            System.out.println(a + " " + (b - 45));
+        A += C / 60;
+        B += C % 60;
+
+        if(B > 59) {
+            A += 1;
+            B -= 60;
         }
+        if(A > 23) {
+            A -= 24;
+        }
+        System.out.println(A + " " + B);
     }
 }

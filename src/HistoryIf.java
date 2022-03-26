@@ -114,5 +114,37 @@ public class HistoryIf {
         }
     }
 
+    //KOI 전자에서는 건강에 좋고 맛있는 훈제오리구이 요리를 간편하게 만드는 인공지능 오븐을 개발하려고 한다. 인공지능 오븐을 사용하는 방법은 적당한 양의 오리 훈제 재료를 인공지능 오븐에 넣으면 된다. 그러면 인공지능 오븐은 오븐구이가 끝나는 시간을 분 단위로 자동적으로 계산한다.
+    //
+    //또한, KOI 전자의 인공지능 오븐 앞면에는 사용자에게 훈제오리구이 요리가 끝나는 시각을 알려 주는 디지털 시계가 있다.
+    //
+    //훈제오리구이를 시작하는 시각과 오븐구이를 하는 데 필요한 시간이 분단위로 주어졌을 때, 오븐구이가 끝나는 시각을 계산하는 프로그램을 작성하시오.
+    public static void oven(String[] args) throws IOException{
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+
+        int A = Integer.parseInt(st.nextToken());
+        int B = Integer.parseInt(st.nextToken());
+        //두번째 줄에 출력해야하는 변수 하나는 StringTokenizer가 아닌 기본 입력을 사용
+        int C = Integer.parseInt(br.readLine());
+
+        //1시간은 60분이기에 C분에 60을 나눠서 나온 몫과 나머지를 각 시, 분애 합산
+        A += C / 60;
+        B += C % 60;
+
+        //분이 60분이상이면 A시에 1시간 추가 후 B분에서 60분 뺴기
+        if(B > 59) {
+            A += 1;
+            B -= 60;
+        }
+        //하루는 24시간이기에 A시가 24 이상이면 A에서 24 빼기
+        if(A > 23) {
+            A -= 24;
+        }
+        //가운데 공백을 두고 결과 출력
+        System.out.println(A + " " + B);
+    }
+
+
     
 }
