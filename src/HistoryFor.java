@@ -23,5 +23,22 @@ public class HistoryFor {
         }
     }
 
+    //두 정수 A와 B를 입력받은 다음, A+B를 출력하는 프로그램을 작성하시오.
+    //StringBuilder에는 append()가 있는데, 이는 문자열을 더하는 역할을 한다.
+    public static void aPlusB(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        int a = Integer.parseInt(br.readLine());
+
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 0; i < a; i++) {
+            StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+            sb.append(Integer.parseInt(st.nextToken()) + Integer.parseInt(st.nextToken()));
+            sb.append('\n');
+        }
+        System.out.println(sb);
+    }
+
 
 }
