@@ -40,5 +40,17 @@ public class HistoryFor {
         System.out.println(sb);
     }
 
+    //n이 주어졌을 때, 1부터 n까지 합을 구하는 프로그램을 작성하시오.
+    public static void sum(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        int a = Integer.parseInt(br.readLine());
+        int result = 0;
+
+        for (int i = 1; i <= a; i++) {
+            result += i;
+        }
+        System.out.println(result);
+    }
 
 }
