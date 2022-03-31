@@ -1,14 +1,11 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.StringTokenizer;
 
 
 public class HistoryFor {
 
     public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+        aPlusB(args);
 
     }
 
@@ -51,6 +48,21 @@ public class HistoryFor {
             result += i;
         }
         System.out.println(result);
+    }
+
+    //첫번째 입력값으로 계산할 갯수를 입력받고, 두번째, 세번째 값으로 더할 A, B 값을 입력받는다.
+    public static void sum2(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        int a = Integer.parseInt(br.readLine());
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 0; i < a; i++) {
+            StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+            sb.append(Integer.parseInt(st.nextToken()) + Integer.parseInt(st.nextToken()));
+            sb.append("\n");
+        }
+        System.out.println(sb);
     }
 
 }
