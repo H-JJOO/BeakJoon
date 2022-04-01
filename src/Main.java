@@ -1,5 +1,4 @@
 import java.io.*;
-import java.util.StringTokenizer;
 
 public class Main {
 
@@ -7,13 +6,10 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         int a = Integer.parseInt(br.readLine());
-        StringBuilder sb = new StringBuilder();
 
-        for (int i = 0; i < a; i++) {
-            StringTokenizer st = new StringTokenizer(br.readLine(), " ");
-            sb.append(Integer.parseInt(st.nextToken()) + Integer.parseInt(st.nextToken()));
-            sb.append("\n");
+        while (a > 0) {
+            System.out.println(a);
+            a--;
         }
-        System.out.println(sb);
     }
 }

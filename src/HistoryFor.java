@@ -65,4 +65,27 @@ public class HistoryFor {
         System.out.println(sb);
     }
 
+    //자연수 N이 주어졌을 때, 1부터 N까지 한 줄에 하나씩 출력하는 프로그램을 작성하시오.
+    public static void increment(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        int a = Integer.parseInt(br.readLine());
+
+        for (int i = 1; i < a+1; i++) {
+            System.out.println(i);
+        }
+    }
+
+    //자연수 N이 주어졌을 때, N부터 1까지 한 줄에 하나씩 출력하는 프로그램을 작성하시오.
+    public static void decrease(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        int a = Integer.parseInt(br.readLine());
+
+        while (a > 0) {
+            System.out.println(a);
+            a--;
+        }
+    }
+
 }
