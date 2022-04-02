@@ -88,4 +88,23 @@ public class HistoryFor {
         }
     }
 
+    //두 정수 A와 B를 입력받은 다음, A+B를 출력하는 프로그램을 작성하시오.
+    public static void plus(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        int a = Integer.parseInt(br.readLine());
+
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 1; i < a + 1; i++) {
+            StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+            sb.append("Case #");
+            sb.append(i);
+            sb.append(": ");
+            sb.append(Integer.parseInt(st.nextToken()) + Integer.parseInt(st.nextToken()));
+            sb.append("\n");
+        }
+        System.out.println(sb);
+    }
+
 }

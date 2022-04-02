@@ -1,4 +1,5 @@
 import java.io.*;
+import java.util.StringTokenizer;
 
 public class Main {
 
@@ -7,9 +8,16 @@ public class Main {
 
         int a = Integer.parseInt(br.readLine());
 
-        while (a > 0) {
-            System.out.println(a);
-            a--;
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 1; i < a + 1; i++) {
+            StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+            sb.append("Case #");
+            sb.append(i);
+            sb.append(": ");
+            sb.append(Integer.parseInt(st.nextToken()) + Integer.parseInt(st.nextToken()));
+            sb.append("\n");
         }
+        System.out.println(sb);
     }
 }
