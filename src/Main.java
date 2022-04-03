@@ -12,10 +12,16 @@ public class Main {
 
         for (int i = 1; i < a + 1; i++) {
             StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+            int b = Integer.parseInt(st.nextToken());
+            int c = Integer.parseInt(st.nextToken());
             sb.append("Case #");
             sb.append(i);
             sb.append(": ");
-            sb.append(Integer.parseInt(st.nextToken()) + Integer.parseInt(st.nextToken()));
+            sb.append(b);
+            sb.append(" + ");
+            sb.append(c);
+            sb.append(" = ");
+            sb.append(b + c);
             sb.append("\n");
         }
         System.out.println(sb);

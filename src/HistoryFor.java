@@ -107,4 +107,28 @@ public class HistoryFor {
         System.out.println(sb);
     }
 
+    //두 정수 A와 B를 입력받은 다음, A+B를 출력하는 프로그램을 작성하시오.
+    public static void plus2(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        int a = Integer.parseInt(br.readLine());
+
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 1; i < a + 1; i++) {
+            StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+            int b = Integer.parseInt(st.nextToken());
+            int c = Integer.parseInt(st.nextToken());
+            sb.append("Case #");
+            sb.append(i);
+            sb.append(": ");
+            sb.append(b);
+            sb.append(" + ");
+            sb.append(c);
+            sb.append(" = ");
+            sb.append(b + c);
+            sb.append("\n");
+        }
+        System.out.println(sb);
+    }
 }
