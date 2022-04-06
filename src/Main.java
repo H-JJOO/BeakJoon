@@ -5,24 +5,17 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
-        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
-
-        int a = Integer.parseInt(st.nextToken());
-        int b = Integer.parseInt(st.nextToken());
-
         StringBuilder sb = new StringBuilder();
+        StringTokenizer st;
+        String str;
 
-        st = new StringTokenizer(br.readLine(), " ");
-
-        for (int i = 0; i < a; i++) {
-            int value = Integer.parseInt(st.nextToken());
-
-            if (value < b) {
-                sb.append(value).append(' ');
-            }
+        while ( (str= br.readLine()) != null) {
+            st = new StringTokenizer(str, " ");
+            int a = Integer.parseInt(st.nextToken());
+            int b = Integer.parseInt(st.nextToken());
+            sb.append(a + b);
+            sb.append("\n");
         }
         System.out.println(sb);
-
     }
 }

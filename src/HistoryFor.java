@@ -186,4 +186,41 @@ public class HistoryFor {
         System.out.println(sb);
 
     }
+    //두 정수 A와 B를 입력받은 다음, A+B를 출력하는 프로그램을 작성하시오. 0 입력시 종료
+    public static void plus3(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        StringBuilder sb = new StringBuilder();
+
+        while (true) {
+
+            StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+            int a = Integer.parseInt(st.nextToken());
+            int b = Integer.parseInt(st.nextToken());
+
+            if (a == 0 && b == 0) {
+                break;
+            }
+            sb.append(a + b);
+            sb.append("\n");
+        }
+        System.out.println(sb);
+    }
+
+    //두 정수 A와 B를 입력받은 다음, A+B를 출력하는 프로그램을 작성하시오. 빈칸 입력 (윈도우 : ctrl + z, 리눅스 : ctrl + d) 시 종료
+    public static void plus4(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
+        StringTokenizer st;
+        String str;
+
+        while ( (str= br.readLine()) != null) {
+            st = new StringTokenizer(str, " ");
+            int a = Integer.parseInt(st.nextToken());
+            int b = Integer.parseInt(st.nextToken());
+            sb.append(a + b);
+            sb.append("\n");
+        }
+        System.out.println(sb);
+    }
 }
