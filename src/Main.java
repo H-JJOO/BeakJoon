@@ -1,21 +1,24 @@
 import java.io.*;
-import java.util.StringTokenizer;
 
 public class Main {
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringBuilder sb = new StringBuilder();
-        StringTokenizer st;
-        String str;
 
-        while ( (str= br.readLine()) != null) {
-            st = new StringTokenizer(str, " ");
-            int a = Integer.parseInt(st.nextToken());
-            int b = Integer.parseInt(st.nextToken());
-            sb.append(a + b);
-            sb.append("\n");
+        int a = Integer.parseInt(br.readLine());
+
+        int cnt = 0;
+        int copy = a;
+
+        if (a >= 0 && a < 99 ) {
+            do {
+                a = ((a % 10) * 10) + (((a / 10) + (a % 10)) % 10);
+                cnt++;
+            } while (copy != a);
+
+            System.out.println(cnt);
+        } else {
+            System.out.println("0보다 크거나 같고, 99보다 작거나 같은 정수를 입력하세요.");
         }
-        System.out.println(sb);
     }
 }
