@@ -58,4 +58,23 @@ public class HistoryList {
         System.out.println(max);
         System.out.println(index);
     }
+    //세 개의 자연수 A, B, C가 주어질 때 A × B × C를 계산한 결과에 0부터 9까지 각각의 숫자가 몇 번씩 쓰였는지를 구하는 프로그램을 작성하시오.
+    //예를 들어 A = 150, B = 266, C = 427 이라면 A × B × C = 150 × 266 × 427 = 17037300 이 되고, 계산한 결과 17037300 에는 0이 3번, 1이 1번, 3이 2번, 7이 2번 쓰였다.
+    public static void count(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        int [] arr = new int[10];//0~9, 10개
+
+        int val = Integer.parseInt(br.readLine()) * Integer.parseInt(br.readLine()) * Integer.parseInt(br.readLine());
+
+        String str = String.valueOf(val);//정수를 문자열로 변환
+
+        for (int i = 0; i < str.length(); i++) {
+            arr[(str.charAt(i) - '0')]++;//문자 0 혹은 아스키코드 48을 빼준다.
+        }
+
+        for (int v : arr) {
+            System.out.println(v);
+        }
+    }
 }
