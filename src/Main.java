@@ -1,22 +1,17 @@
 import java.io.*;
+import java.util.HashSet;
 
+//HashSet 중복되는 원소를 넣을 경우 하나만 저장한다.
 public class Main {
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        int [] arr = new int[10];//0~9, 10개
+        HashSet<Integer> h = new HashSet<>();
 
-        int val = Integer.parseInt(br.readLine()) * Integer.parseInt(br.readLine()) * Integer.parseInt(br.readLine());
-
-        String str = String.valueOf(val);//정수를 문자열로 변환
-
-        for (int i = 0; i < str.length(); i++) {
-            arr[(str.charAt(i) - '0')]++;//문자 0 혹은 아스키코드 48을 빼준다.
+        for (int i = 0; i < 10; i ++) {
+            h.add(Integer.parseInt(br.readLine()) % 42);
         }
-
-        for (int v : arr) {
-            System.out.println(v);
-        }
+        System.out.println(h.size());
     }
 }
