@@ -1,17 +1,26 @@
 import java.io.*;
-import java.util.HashSet;
+import java.util.Arrays;
+import java.util.StringTokenizer;
 
-//HashSet 중복되는 원소를 넣을 경우 하나만 저장한다.
 public class Main {
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        HashSet<Integer> h = new HashSet<>();
+        double arr[] = new double[Integer.parseInt(br.readLine())];
 
-        for (int i = 0; i < 10; i ++) {
-            h.add(Integer.parseInt(br.readLine()) % 42);
+        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = Double.parseDouble(st.nextToken());
         }
-        System.out.println(h.size());
+
+        double sum = 0;
+        Arrays.sort(arr);
+
+        for (int i = 0; i < arr.length; i++) {
+            sum = ((arr[i] / arr[arr.length - 1]) * 100) + sum;
+        }
+        System.out.println(sum / arr.length);
     }
 }
