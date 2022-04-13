@@ -1,26 +1,35 @@
 import java.io.*;
-import java.util.Arrays;
-import java.util.StringTokenizer;
 
 public class Main {
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        double arr[] = new double[Integer.parseInt(br.readLine())];
+        StringBuilder sb = new StringBuilder();
 
-        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+        int a = Integer.parseInt(br.readLine());
 
-        for (int i = 0; i < arr.length; i++) {
-            arr[i] = Double.parseDouble(st.nextToken());
+        String arr[] = new String[a];
+
+        for (int i = 0; i < a; i++) {
+            arr[i] = br.readLine();
         }
 
-        double sum = 0;
-        Arrays.sort(arr);
+        for (int i = 0; i < a; i++) {
 
-        for (int i = 0; i < arr.length; i++) {
-            sum = ((arr[i] / arr[arr.length - 1]) * 100) + sum;
+            int cnt = 0;//연속횟수
+            int sum = 0;//누적합산
+
+            for (int j = 0; j < arr[i].length(); j++) {
+                if (arr[i].charAt(j) == 'O') {
+                    cnt++;
+                } else {
+                    cnt = 0;
+                }
+                sum += cnt;
+            }
+            sb.append(sum).append('\n');
         }
-        System.out.println(sum / arr.length);
+        System.out.println(sb);
     }
 }
