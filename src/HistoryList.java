@@ -166,4 +166,45 @@ public class HistoryList {
         }
         System.out.println(sb);
     }
+    //첫째 줄에는 테스트 케이스의 개수 C가 주어진다.
+    //둘째 줄부터 각 테스트 케이스마다 학생의 수 N(1 ≤ N ≤ 1000, N은 정수)이 첫 수로 주어지고, 이어서 N명의 점수가 주어진다. 점수는 0보다 크거나 같고, 100보다 작거나 같은 정수이다.
+    //각 케이스마다 한 줄씩 평균을 넘는 학생들의 비율을 반올림하여 소수점 셋째 자리까지 출력한다.
+    public static void avg(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        int a = Integer.parseInt(br.readLine());
+
+        int[] arr;
+
+        StringTokenizer st;
+
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 0; i < a; i++) {
+
+            st = new StringTokenizer(br.readLine(), " ");//학생 수, 성적
+
+            int N = Integer.parseInt(st.nextToken());//학생 수
+            arr = new int[N];
+
+            double sum = 0;//성적 합
+
+            for (int j = 0; j < N; j++) {
+                int val = Integer.parseInt(st.nextToken());//성적
+                arr[j] = val;
+                sum += val;
+            }
+            double avg = (sum / N);
+            double cnt = 0;//평균이 넘는 학생 수
+
+            //평균 넘는 학생 비율
+            for (int j = 0; j < N; j++) {
+                if (arr[j] > avg) {
+                    cnt++;
+                }
+            }
+            sb.append(String.format("%.3f",((cnt/N)*100)) + "%\n");
+        }
+        System.out.println(sb);
+    }
 }
