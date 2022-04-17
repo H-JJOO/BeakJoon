@@ -4,33 +4,31 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        boolean[] check = new boolean[10001];
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        for (int i = 0; i < 10001; i++) {
-            int n = d(i);
-
-            if (n < 10001) {
-                check[n] = true;
-            }
-        }
-
-        StringBuilder sb = new StringBuilder();
-
-        for (int i = 1; i < 10001; i++) {
-            if (!check[i]) {
-                sb.append(i).append('\n');
-            }
-        }
-        System.out.println(sb);
+        System.out.print(arithmeticSequence(Integer.parseInt(br.readLine())));
     }
 
-    public static int d(int number) {
-        int sum = number;
+    public static int arithmeticSequence(int num) {
+        int cnt = 0;//한수 카운트
 
-        while (number != 0) {
-            sum = sum + (number % 10);//첫 자리
-            number = number / 10;//첫 째 자리 삭제
+        if (num < 100) {
+            return num;
+        } else {
+            cnt = 99;//99이하는 cnt 99
+            if (num == 1000) {//예외처리
+                num = 999;
+            }
+            for (int i = 100; i <= num; i++) {
+                int hundred = i / 100;
+                int ten = (i / 10) % 10;
+                int one = i % 10;
+
+                if ((hundred - ten) == (ten - one)) {//등차수열
+                    cnt++;
+                }
+            }
         }
-        return sum;
+        return cnt;
     }
 }
