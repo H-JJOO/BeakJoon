@@ -1,17 +1,20 @@
-import java.io.*;
+import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
 
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int N = sc.nextInt();
+        String a = sc.next();
+        sc.close();
 
-        char a = br.readLine().charAt(0);//첫번째 인덱스
+        int sum = 0;
 
-        int num = (int)a;
-
-        System.out.println(num);
+        for (int i = 0; i < N; i++) {
+            sum += a.charAt(i)-'0';//문자의 아스키코드 값 변환, 반드시 -48 혹은 -'0'을 해줘야함
+        }
+        System.out.println(sum);
     }
-
 
 }
