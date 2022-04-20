@@ -1,20 +1,28 @@
-import java.util.Scanner;
+import java.io.*;
 
 public class Main {
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        int N = sc.nextInt();
-        String a = sc.next();
-        sc.close();
+        int [] arr = new int[26];//소문자 a~z
 
-        int sum = 0;
-
-        for (int i = 0; i < N; i++) {
-            sum += a.charAt(i)-'0';//문자의 아스키코드 값 변환, 반드시 -48 혹은 -'0'을 해줘야함
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = -1;//초기화
         }
-        System.out.println(sum);
-    }
 
+        String S = br.readLine();//입력 단어
+
+        for (int i = 0; i < S.length(); i++) {
+            char ch = S.charAt(i);
+
+            if (arr[ch - 'a'] == -1) {//arr 값이 -1 인 경우 초기화
+                arr[ch - 'a'] = i;
+            }
+        }
+
+        for (int val : arr) {//배열 출력
+            System.out.print(val + " ");
+        }
+    }
 }
