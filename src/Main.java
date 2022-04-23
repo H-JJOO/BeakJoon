@@ -1,4 +1,5 @@
 import java.io.*;
+import java.util.StringTokenizer;
 
 public class Main {
 
@@ -6,28 +7,7 @@ public class Main {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        int[] arr = new int[26];//영문자 개수
-        String s = br.readLine();// 입력단어
-
-        for (int i = 0; i < s.length(); i++) {
-            if ('a' <= s.charAt(i) && s.charAt(i) <= 'z') {//대문자 범위
-                arr[s.charAt(i) - 'a']++;//인덱스 값 1 증가
-            } else {//소문자 범위
-                arr[s.charAt(i) - 'A']++;
-            }
-        }
-        int max = -1;
-        char ch = '?';
-
-        for (int i = 0; i < 26; i++) {
-            if (arr[i] > max) {
-                max = arr[i];
-                ch = (char) (i + 65);//대문자 출력
-            }
-            else if (arr[i] == max) {
-                ch = '?';
-            }
-        }
-        System.out.println(ch);
+        StringTokenizer st = new StringTokenizer(br.readLine(), " ");//st 에 공백을 기준으로 하는 토큰을 st 에 저장
+        System.out.println(st.countTokens());// countTokens() : 토큰의 개수를 반환
     }
 }
