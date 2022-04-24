@@ -7,7 +7,12 @@ public class Main {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        StringTokenizer st = new StringTokenizer(br.readLine(), " ");//st 에 공백을 기준으로 하는 토큰을 st 에 저장
-        System.out.println(st.countTokens());// countTokens() : 토큰의 개수를 반환
+        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+
+        //StringBuilder 의 reverse 메소드
+        int a = Integer.parseInt(new StringBuilder(st.nextToken()).reverse().toString());
+        int b = Integer.parseInt(new StringBuilder(st.nextToken()).reverse().toString());
+
+        System.out.println(a > b ? a : b);
     }
 }

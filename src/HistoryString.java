@@ -124,4 +124,53 @@ public class HistoryString {
         System.out.println(st.countTokens());// countTokens() : 토큰의 개수를 반환
     }
 
+    //상근이의 동생 상수는 수학을 정말 못한다. 상수는 숫자를 읽는데 문제가 있다. 이렇게 수학을 못하는 상수를 위해서 상근이는 수의 크기를 비교하는 문제를 내주었다. 상근이는 세 자리 수 두 개를 칠판에 써주었다. 그 다음에 크기가 큰 수를 말해보라고 했다.
+    //상수는 수를 다른 사람과 다르게 거꾸로 읽는다. 예를 들어, 734와 893을 칠판에 적었다면, 상수는 이 수를 437과 398로 읽는다. 따라서, 상수는 두 수중 큰 수인 437을 큰 수라고 말할 것이다.
+    //두 수가 주어졌을 때, 상수의 대답을 출력하는 프로그램을 작성하시오.
+    public static void constantM(String[] args) throws IOException {
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+
+        String a = String.format(st.nextToken());
+
+        String b = String.format(st.nextToken());
+
+        if (Integer.parseInt(a.charAt(2) + "" +  a.charAt(1)  + "" + a.charAt(0)) > Integer.parseInt(b.charAt(2) + "" +  b.charAt(1)  + "" + b.charAt(0))) {
+            System.out.print(a.charAt(2) + "" +  a.charAt(1)  + "" + a.charAt(0));
+        } else if (Integer.parseInt(a.charAt(2) + "" +  a.charAt(1)  + "" + a.charAt(0)) < Integer.parseInt(b.charAt(2) + "" +  b.charAt(1)  + "" + b.charAt(0))) {
+            System.out.print(b.charAt(2) + "" +  b.charAt(1)  + "" + b.charAt(0));
+        }
+    }
+
+    public static void constantV1(String[] args) throws IOException {
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+
+        int a = Integer.parseInt(st.nextToken());
+
+        int b = Integer.parseInt(st.nextToken());
+
+        a = Integer.parseInt(new StringBuilder().append(a).reverse().toString());
+        b = Integer.parseInt(new StringBuilder().append(b).reverse().toString());
+
+        System.out.println(a > b ? a : b);
+    }
+
+    public static void constantV2(String[] args) throws IOException {
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+
+        //StringBuilder 의 reverse 메소드
+        int a = Integer.parseInt(new StringBuilder(st.nextToken()).reverse().toString());
+        int b = Integer.parseInt(new StringBuilder(st.nextToken()).reverse().toString());
+
+        System.out.println(a > b ? a : b);
+    }
+
 }
