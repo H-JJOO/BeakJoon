@@ -1,6 +1,6 @@
 import java.io.*;
 
-public class Main {
+public class StringLastQ {
 
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
