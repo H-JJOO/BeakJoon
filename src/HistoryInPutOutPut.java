@@ -144,4 +144,16 @@ public class HistoryInPutOutPut {
         System.out.println((a*b)%c);
         System.out.println((a%c)*(b%c)%c);
     }
+
+    //새싹
+    public static void sprout(String[] args) throws IOException {
+
+        System.out.println("         ,r'\"7");
+        System.out.println("r`-_   ,'  ,/");
+        System.out.println(" \\. \". L_r'");
+        System.out.println("   `~\\/");
+        System.out.println("      |");
+        System.out.println("      |");
+    }
+
 }
