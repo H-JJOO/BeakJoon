@@ -1,27 +1,30 @@
-import java.io.*;
 import java.util.StringTokenizer;
+import java.io.*;
 
 public class Main {
-
     public static void main(String[] args) throws IOException {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+        StringBuilder sb = new StringBuilder();
 
-        int A = Integer.parseInt(st.nextToken());//올라감
+        int T = Integer.parseInt(br.readLine());	// 테스트 케이스
 
-        int B = Integer.parseInt(st.nextToken());//내려감
+        for (int i = 0; i < T; i++) {
+            StringTokenizer st = new StringTokenizer(br.readLine(), " ");
 
-        int V = Integer.parseInt(st.nextToken());//높이
+            int H = Integer.parseInt(st.nextToken());
+            st.nextToken();			// W 는 버림
+            int N = Integer.parseInt(st.nextToken());
 
-        int day = (V - B) / (A - B);
+            if (N % H == 0) {
+                sb.append((H * 100) + (N / H)).append('\n');
 
-        if ((V- B) % (A - B) != 0) {
-            day++;
+            } else {
+                sb.append(((N % H) * 100) + ((N / H) + 1)).append('\n');
+            }
         }
-
-        System.out.println(day);
+        System.out.print(sb);
 
     }
 }

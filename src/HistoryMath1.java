@@ -52,4 +52,58 @@ public class HistoryMath1 {
             System.out.println(cnt);
         }
     }
+
+    //땅 위에 달팽이가 있다. 이 달팽이는 높이가 V미터인 나무 막대를 올라갈 것이다.
+    //달팽이는 낮에 A미터 올라갈 수 있다. 하지만, 밤에 잠을 자는 동안 B미터 미끄러진다. 또, 정상에 올라간 후에는 미끄러지지 않는다.
+    //달팽이가 나무 막대를 모두 올라가려면, 며칠이 걸리는지 구하는 프로그램을 작성하시오.
+
+    public static void snail(String[] args) throws IOException {
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+
+        int A = Integer.parseInt(st.nextToken());//올라감
+
+        int B = Integer.parseInt(st.nextToken());//내려감
+
+        int V = Integer.parseInt(st.nextToken());//높이
+
+        int day = (V - B) / (A - B);
+
+        if ((V- B) % (A - B) != 0) {
+            day++;
+        }
+
+        System.out.println(day);
+
+    }
+
+    //프로그램은 표준 입력에서 입력 데이터를 받는다. 프로그램의 입력은 T 개의 테스트 데이터로 이루어져 있는데 T 는 입력의 맨 첫 줄에 주어진다. 각 테스트 데이터는 한 행으로서 H, W, N, 세 정수를 포함하고 있으며 각각 호텔의 층 수, 각 층의 방 수, 몇 번째 손님인지를 나타낸다(1 ≤ H, W ≤ 99, 1 ≤ N ≤ H × W).
+
+    public static void hotel(String[] args) throws IOException {
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        StringBuilder sb = new StringBuilder();
+
+        int T = Integer.parseInt(br.readLine());	// 테스트 케이스
+
+        for (int i = 0; i < T; i++) {
+            StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+
+            int H = Integer.parseInt(st.nextToken());
+            st.nextToken();			// W 는 버림
+            int N = Integer.parseInt(st.nextToken());
+
+            if (N % H == 0) {
+                sb.append((H * 100) + (N / H)).append('\n');
+
+            } else {
+                sb.append(((N % H) * 100) + ((N / H) + 1)).append('\n');
+            }
+        }
+        System.out.print(sb);
+
+    }
 }
