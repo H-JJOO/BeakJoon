@@ -1,30 +1,40 @@
-import java.util.StringTokenizer;
 import java.io.*;
 
 public class Main {
+
+    public static int[][] APT = new int[15][15];
+
     public static void main(String[] args) throws IOException {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
         StringBuilder sb = new StringBuilder();
 
-        int T = Integer.parseInt(br.readLine());	// 테스트 케이스
+        make_APT();
+
+        int T = Integer.parseInt(br.readLine());
 
         for (int i = 0; i < T; i++) {
-            StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+            int k = Integer.parseInt(br.readLine());
+            int n = Integer.parseInt(br.readLine());
+            sb.append(APT[k][n]).append('\n');
+        }
+        System.out.println(sb);
+    }
 
-            int H = Integer.parseInt(st.nextToken());
-            st.nextToken();			// W 는 버림
-            int N = Integer.parseInt(st.nextToken());
 
-            if (N % H == 0) {
-                sb.append((H * 100) + (N / H)).append('\n');
+    public static void make_APT() {
 
-            } else {
-                sb.append(((N % H) * 100) + ((N / H) + 1)).append('\n');
+        for (int i = 0; i < 15; i++) {
+            APT[i][1] = 1; // i층 1호
+            APT[0][i] = i; // 0층 i호
+        }
+
+        for (int i = 1; i < 15; i++) { // 1층~14층
+
+            for (int j = 2; j < 15; j++) { // 2호~14호
+                APT[i][j] = APT[i][j - 1] + APT[i - 1][j];
             }
         }
-        System.out.print(sb);
-
     }
+
 }
