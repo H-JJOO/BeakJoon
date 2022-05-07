@@ -184,4 +184,35 @@ public class HistoryMath1 {
         System.out.println(A.toString());
 
     }
+
+    //주어진 수 N개 중에서 소수가 몇 개인지 찾아서 출력하는 프로그램을 작성하시오.
+    public static void decimal(String[] args) throws IOException {
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        br.readLine();
+        int cnt = 0;
+
+        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+
+        while (st.hasMoreTokens()) {
+            boolean isPrime = true;
+
+            int num = Integer.parseInt(st.nextToken());
+
+            if (num == 1) {
+                continue;
+            }
+            for (int i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i == 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+            if (isPrime) {
+                cnt++;
+            }
+        }
+        System.out.println(cnt);
+    }
 }
