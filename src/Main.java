@@ -1,5 +1,4 @@
 import java.io.*;
-import java.math.BigInteger;
 import java.util.StringTokenizer;
 
 public class Main {
@@ -8,13 +7,29 @@ public class Main {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
+        br.readLine();
+        int cnt = 0;
+
         StringTokenizer st = new StringTokenizer(br.readLine(), " ");
 
-        BigInteger A = new BigInteger(st.nextToken());
-        BigInteger B = new BigInteger(st.nextToken());
+        while (st.hasMoreTokens()) {
+            boolean isPrime = true;
 
-        A = A.add(B);
+            int num = Integer.parseInt(st.nextToken());
 
-        System.out.println(A.toString());
+            if (num == 1) {
+                continue;
+            }
+            for (int i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i == 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+            if (isPrime) {
+                cnt++;
+            }
+        }
+        System.out.println(cnt);
     }
 }
